@@ -86,7 +86,7 @@
       <div class="order-wrap">
         <!--Form-->
         <form id="orderForm" class="card" novalidate>
-          <!--Sản phẩm-->
+          <!--san pham-->
           <fieldset>
             <legend>Món & Tùy chọn</legend>
 
@@ -242,7 +242,7 @@
           </div>
         </form>
 
-        <!--TÓM TẮT ĐƠN-->
+        <!--form tom tat don-->
         <aside class="order-summary card" aria-label="Tóm tắt đơn hàng">
           <h2>Đơn của bạn</h2>
           <div class="sum-row"><span>Món</span><strong id="sumItem">—</strong></div>
@@ -344,7 +344,7 @@
         sumTotal.textContent = fmt(total);
       }
 
-      // nhận món: hiện/ẩn địa chỉ
+      // nhận món: địa chỉ
       function toggleDelivery(){
         const isDelivery = methodRadios.find(r=>r.checked)?.value === 'delivery';
         deliveryFields.classList.toggle('hidden', !isDelivery);
