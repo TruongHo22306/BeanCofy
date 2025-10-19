@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Đặt hàng tại Bean Cofy – Giao tận nơi hoặc nhận tại quán" />
+  <title>Đặt hàng • Bean Cofy</title>
+  <link rel="icon" href="/assets/img/logo.png" type="image/png" />
+  <link rel="stylesheet" href="/assets/css/styles.css" />
+  <style>
+    .order-hero{background:var(--surface);border-bottom:1px solid var(--border)}
+    .order-wrap{display:grid;grid-template-columns:1.2fr .8fr;gap:1rem}
+    .order-summary{position:sticky;top:80px;align-self:start}
+    .sum-row{display:flex;justify-content:space-between;gap:.75rem}
+    .sum-row + .sum-row{margin-top:.35rem}
+    .sum-total{font-weight:800;font-size:1.15rem}
+    .muted{color:var(--muted)}
+    .hidden{display:none !important}
+    @media (max-width: 980px){ .order-wrap{grid-template-columns:1fr} .order-summary{position:static} }
+    .price-chip{display:inline-block;padding:.2rem .5rem;border:1px solid var(--border);border-radius:999px;font-size:.85rem;color:var(--muted)}
+    .inline-help{font-size:.85rem;color:var(--muted)}
+    .toppings{display:flex;gap:.75rem;flex-wrap:wrap}
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Bỏ qua nội dung</a>
+
+  <!--Topbar-->
+  <div class="topbar" role="region" aria-label="Store info">
+    <div class="container topbar-inner">
+      <span>📍 189 Cô Giang</span>
+      <span>📞 0867.594.183</span>
+    </div>
+  </div>
+
+  <header class="site-header header-centered order-hero" role="banner">
+    <div class="container">
+      <nav class="site-nav centered" aria-label="Main">
+        <button id="navToggle" class="nav-toggle" aria-expanded="false" aria-controls="navMenu">Menu ☰</button>
+
+        <a class="brand-center" href="/index.html" aria-label="Bean Cofy Home">
+          <img src="/assets/img/logo.png" width="140" height="48" alt="BEAN COFY logo" />
+        </a>
+
+        <ul class="left menu-root" id="navMenu">
+          <li class="has-submenu">
+            <a href="/menu.html#coffee" aria-haspopup="true" aria-expanded="false">Cà phê</a>
+            <button class="submenu-toggle" aria-label="Mở danh mục Cà phê"></button>
+            <ul class="submenu" aria-label="Danh mục Cà phê">
+              <li><a href="/menu.html#espresso">Espresso</a></li>
+              <li><a href="/menu.html#americano">Americano</a></li>
+              <li><a href="/menu.html#latte">Latte</a></li>
+              <li><a href="/menu.html#cappuccino">Cappuccino</a></li>
+              <li><a href="/menu.html#coldbrew">Cold Brew</a></li>
+            </ul>
+          </li>
+
+          <li class="has-submenu">
+            <a href="/menu.html#tea" aria-haspopup="true" aria-expanded="false">Trà</a>
+            <button class="submenu-toggle" aria-label="Mở danh mục Trà"></button>
+            <ul class="submenu" aria-label="Danh mục Trà">
+              <li><a href="/menu.html#sen-tuyet">Trà Sen Tuyết</a></li>
+              <li><a href="/menu.html#sen-may">Trà Sen Mây</a></li>
+              <li><a href="/menu.html#sen-vai">Trà Sen Vải</a></li>
+              <li><a href="/menu.html#dao-cam-sa">Trà Đào Cam Sả</a></li>
+              <li><a href="/menu.html#tra-sua">Trà Sữa</a></li>
+            </ul>
+          </li>
+
+          <li><a href="/about.html">Về chúng tôi</a></li>
+        </ul>
+
+        <ul class="right menu-root">
+          <li><a href="/tuyendung.html">Tuyển dụng</a></li>
+          <li><a class="btn small" href="/dathang.html" aria-current="page">Đặt hàng</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="site-main">
+    <section class="container" aria-labelledby="order-title" style="padding-top:1rem">
+      <h1 id="order-title">Đặt hàng</h1>
+      <p class="inline-help">Chọn món, điền thông tin và thời gian nhận món. Tổng tiền sẽ cập nhật tự động.</p>
+
+      <div class="order-wrap">
+        <!--Form-->
+        <form id="orderForm" class="card" novalidate>
+          <!--Sản phẩm-->
+          <fieldset>
+            <legend>Món & Tùy chọn</legend>
+
+            <div class="full">
+            <label for="item">Chọn đồ uống *</label>
+            <select id="item" name="item" required>
+              <option value="" disabled selected>— Chọn món —</option>
+
+              <optgroup label="Cà phê">
+                <option value="espresso"   data-price="30000">Espresso — 30.000</option>
+                <option value="americano"  data-price="35000">Americano — 35.000</option>
+                <option value="latte"      data-price="45000">Latte — 45.000</option>
+                <option value="cappuccino" data-price="45000">Cappuccino — 45.000</option>
+                <option value="coldbrew"   data-price="47000">Cold Brew — 47.000</option>
+              </optgroup>
+
+              <optgroup label="Trà">
+                <option value="sen-tuyet"  data-price="79000">Trà Sen Tuyết — 79.000</option>
+                <option value="sen-may"    data-price="65000">Trà Sen Mây — 65.000</option>
+                <option value="sen-vai"    data-price="65000">Trà Sen Vải — 65.000</option>
+                <option value="dao-cam-sa" data-price="65000">Trà Đào Cam Sả — 65.000</option>
+                <option value="tra-sua"    data-price="55000">Trà Sữa — 55.000</option>
+              </optgroup>
+            </select>
+            <div class="hint">Giá cơ bản hiển thị ở từng món.</div>
+          </div>
+              <div>
+                <label>Số lượng *</label>
+                <input id="qty" name="qty" type="number" min="1" max="20" step="1" value="1" required />
+              </div>
+
+              <div>
+                <label>Kích cỡ</label>
+                <div class="choices">
+                  <label><input type="radio" name="size" value="S" checked> S</label>
+                  <label><input type="radio" name="size" value="M"> M (+5.000)</label>
+                  <label><input type="radio" name="size" value="L"> L (+10.000)</label>
+                </div>
+              </div>
+
+              <div>
+                <label for="ice">Đá: <span id="iceOut" class="price-chip">50%</span></label>
+                <input id="ice" name="ice" type="range" min="0" max="100" step="10" value="50"
+                       oninput="iceOut.textContent=this.value+'%'" />
+              </div>
+
+              <div>
+                <label for="sweet">Độ ngọt: <span id="sweetOut" class="price-chip">50%</span></label>
+                <input id="sweet" name="sweet" type="range" min="0" max="100" step="10" value="50"
+                       oninput="sweetOut.textContent=this.value+'%'" />
+              </div>
+
+              <div class="full">
+                <label>Topping</label>
+                <div class="toppings">
+                  <label><input type="checkbox" name="top" value="tranchau" data-price="5000"> Trân châu (+5.000)</label>
+                  <label><input type="checkbox" name="top" value="thach" data-price="5000"> Thạch (+5.000)</label>
+                  <label><input type="checkbox" name="top" value="kemcheese" data-price="10000"> Kem cheese (+10.000)</label>
+                </div>
+              </div>
+            </div>
+          </fieldset>
+
+          
+          <fieldset>
+            <legend>Nhận món</legend>
+            <div class="choices">
+              <label><input type="radio" name="method" value="pickup" checked> Nhận tại quán</label>
+              <label><input type="radio" name="method" value="delivery"> Giao tận nơi</label>
+            </div>
+
+            <div id="deliveryFields" class="form-grid hidden" aria-hidden="true">
+              <div class="full">
+                <label for="address">Địa chỉ giao *</label>
+                <input id="address" name="address" type="text" placeholder="Số nhà, đường, phường, quận" />
+              </div>
+              <div>
+                <label for="ward">Phường/Xã</label>
+                <input id="ward" name="ward" type="text" />
+              </div>
+              <div>
+                <label for="district">Quận/Huyện</label>
+                <input id="district" name="district" type="text" />
+              </div>
+              <div>
+                <label for="note-ship">Ghi chú giao hàng</label>
+                <input id="note-ship" name="noteShip" type="text" placeholder="VD: gọi trước khi đến" />
+              </div>
+            </div>
+          </fieldset>
+
+          
+          <fieldset>
+            <legend>Thời gian & Thanh toán</legend>
+            <div class="form-grid">
+              <div>
+                <label for="date">Ngày nhận *</label>
+                <input id="date" name="date" type="date" required />
+              </div>
+              <div>
+                <label for="time">Giờ nhận *</label>
+                <input id="time" name="time" type="time" required />
+              </div>
+              <div>
+                <label for="pay">Thanh toán</label>
+                <select id="pay" name="pay">
+                  <option value="cash">Tiền mặt</option>
+                  <option value="card">Thẻ</option>
+                  <option value="ewallet">Ví điện tử</option>
+                </select>
+              </div>
+              <div>
+                <label for="coupon">Mã giảm giá</label>
+                <input id="coupon" name="coupon" list="coupon-list" placeholder="Nhập mã (nếu có)" />
+                <datalist id="coupon-list">
+                  <option value="SEN10">Giảm 10%</option>
+                  <option value="FREESHIP">Miễn phí ship nội quận</option>
+                </datalist>
+              </div>
+            </div>
+          </fieldset>
+
+          <!--Khách hàng-->
+          <fieldset>
+            <legend>Thông tin khách hàng</legend>
+            <div class="form-grid">
+              <div>
+                <label for="fullname">Họ và tên *</label>
+                <input id="fullname" name="fullname" type="text" required placeholder="Nguyễn Văn A" />
+              </div>
+              <div>
+                <label for="email">Email *</label>
+                <input id="email" name="email" type="email" required placeholder="ban@vi.du" />
+              </div>
+              <div>
+                <label for="phone">Điện thoại *</label>
+                <input id="phone" name="phone" type="tel" required placeholder="09xxxxxxxx"
+                       pattern="^(0|\\+84)[0-9]{9,10}$" />
+                <div class="hint">Định dạng: 0xxxxxxxxx hoặc +84xxxxxxxx</div>
+              </div>
+              <div class="full">
+                <label for="note">Ghi chú</label>
+                <textarea id="note" name="note" rows="3" placeholder="Ít đá, ít ngọt, không topping..."></textarea>
+              </div>
+            </div>
+            <input type="hidden" name="source" value="order-page" />
+          </fieldset>
+
+          <div class="form-actions">
+            <button type="submit" class="btn">Gửi đơn</button>
+            <button type="reset" class="btn secondary">Làm lại</button>
+            <span id="orderStatus" class="hint" role="status" aria-live="polite"></span>
+          </div>
+        </form>
+
+        <!--TÓM TẮT ĐƠN-->
+        <aside class="order-summary card" aria-label="Tóm tắt đơn hàng">
+          <h2>Đơn của bạn</h2>
+          <div class="sum-row"><span>Món</span><strong id="sumItem">—</strong></div>
+          <div class="sum-row"><span>Kích cỡ</span><span id="sumSize">S</span></div>
+          <div class="sum-row"><span>Topping</span><span id="sumTop">Không</span></div>
+          <div class="sum-row"><span>Số lượng</span><span id="sumQty">1</span></div>
+          <div class="sum-row"><span>Tạm tính</span><span id="sumSub">0 đ</span></div>
+          <div class="sum-row"><span>Ưu đãi</span><span id="sumDisc" class="muted">0 đ</span></div>
+          <div class="sum-row sum-total"><span>Tổng cộng</span><span id="sumTotal">0 đ</span></div>
+          <p class="hint">* Giá đã bao gồm VAT. Phí giao hàng (nếu có) sẽ thông báo sau.</p>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; 2025 Bean Cofy · <a href="/policy.html">Policies</a></p>
+    </div>
+  </footer>
+
+  <script src="/assets/js/main.js" defer></script>
+  <script>
+    
+
+    (function(){
+      const form = document.getElementById('orderForm');
+      const status = document.getElementById('orderStatus');
+
+      const itemSel = document.getElementById('item');
+      const qty = document.getElementById('qty');
+      const toppings = Array.from(document.querySelectorAll('input[name="top"]'));
+      const sizeRadios = Array.from(document.querySelectorAll('input[name="size"]'));
+      const methodRadios = Array.from(document.querySelectorAll('input[name="method"]'));
+      const deliveryFields = document.getElementById('deliveryFields');
+      const address = document.getElementById('address');
+      const coupon = document.getElementById('coupon');
+
+      // summary fields
+      const sumItem = document.getElementById('sumItem');
+      const sumSize = document.getElementById('sumSize');
+      const sumTop  = document.getElementById('sumTop');
+      const sumQty  = document.getElementById('sumQty');
+      const sumSub  = document.getElementById('sumSub');
+      const sumDisc = document.getElementById('sumDisc');
+      const sumTotal= document.getElementById('sumTotal');
+
+      const fmt = (v) => v.toLocaleString('vi-VN') + ' đ';
+
+      function getBasePrice(){
+        const opt = itemSel.options[itemSel.selectedIndex];
+        return Number(opt.dataset.price || 0);
+      }
+
+      function getSizeFee(){
+        const s = sizeRadios.find(r => r.checked)?.value || 'S';
+        if (s === 'M') return 5000;
+        if (s === 'L') return 10000;
+        return 0;
+      }
+
+      function getToppingFee(){
+        return toppings.filter(t => t.checked).reduce((a,t)=> a + Number(t.dataset.price||0), 0);
+      }
+
+      function getDiscount(subtotal){
+        const code = (coupon.value || '').trim().toUpperCase();
+        if (!code) return 0;
+        if (code === 'SEN10') return Math.round(subtotal * 0.10);
+        if (code === 'FREESHIP') return 0; // ship tính riêng, demo không cộng phí ship
+        return 0;
+      }
+
+      function updateSummary(){
+        const itemName = itemSel.options[itemSel.selectedIndex].textContent.split(' — ')[0];
+        const size = sizeRadios.find(r => r.checked)?.value || 'S';
+        const qtyVal = Math.max(1, Number(qty.value || 1));
+
+        const base = getBasePrice();
+        const sizeFee = getSizeFee();
+        const topFee = getToppingFee();
+
+        const priceOne = base + sizeFee + topFee;
+        const subtotal = priceOne * qtyVal;
+        const discount = getDiscount(subtotal);
+        const total = Math.max(0, subtotal - discount);
+
+        // summary text
+        sumItem.textContent = itemName;
+        sumSize.textContent = size;
+        const tops = toppings.filter(t => t.checked).map(t => {
+          const label = t.parentElement.textContent.trim();
+          return label.replace(/\s*\(\+.*\)\s*/,'');
+        });
+        sumTop.textContent = tops.length ? tops.join(', ') : 'Không';
+        sumQty.textContent = String(qtyVal);
+        sumSub.textContent = fmt(subtotal);
+        sumDisc.textContent = discount ? ('- ' + fmt(discount)) : '0 đ';
+        sumTotal.textContent = fmt(total);
+      }
+
+      // nhận món: hiện/ẩn địa chỉ
+      function toggleDelivery(){
+        const isDelivery = methodRadios.find(r=>r.checked)?.value === 'delivery';
+        deliveryFields.classList.toggle('hidden', !isDelivery);
+        deliveryFields.setAttribute('aria-hidden', String(!isDelivery));
+        address.required = isDelivery;
+      }
+
+      // events
+      [itemSel, qty, coupon].forEach(el => el.addentListener ? el.addentListener('input',updateSummary) : el.addEventListener('input',updateSummary));
+      toppings.forEach(t => t.addEventListener('change', updateSummary));
+      sizeRadios.forEach(r => r.addEventListener('change', updateSummary));
+      methodRadios.forEach(r => r.addEventListener('change', toggleDelivery));
+
+      // submit
+      form.addEventListener('submit', (e)=>{
+        e.preventDefault();
+        if(!form.checkValidity()){
+          status.textContent = 'Vui lòng kiểm tra lại thông tin bắt buộc và định dạng.';
+          status.style.color = 'tomato';
+          form.reportValidity();
+          return;
+        }
+        status.textContent = 'Cảm ơn bạn! Đơn hàng đã được ghi nhận.';
+        status.style.color = 'green';
+        form.reset();
+        toggleDelivery();
+        updateSummary();
+      });
+
+      // reset
+      form.addEventListener('reset', ()=>{
+        setTimeout(()=>{ // đợi reset xong
+          coupon.value = '';
+          toggleDelivery();
+          updateSummary();
+          status.textContent = '';
+        },0);
+      });
+
+      // init
+      toggleDelivery();
+      updateSummary();
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="mô tả" />
+  <title>Về chúng tôi • Bean Cofy</title>
+  <link rel="icon" href="/assets/img/logo.png" type="image/png" />
+  <link rel="stylesheet" href="/assets/css/styles.css" />
+  <style>
+
+    /*CSS*/
+    .about-hero{background:var(--surface);border-bottom:1px solid var(--border)}
+    .about-lead{font-size:1.15rem;color:var(--muted)}
+    .values{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;margin-top:1rem}
+    .value{padding:1rem;border:1px solid var(--border);border-radius:var(--radius);background:var(--bg)}
+    .timeline{border-left:3px solid var(--border);padding-left:1rem;margin:1rem 0}
+    .timeline .item{position:relative;margin:1rem 0}
+    .timeline .item::before{content:"";position:absolute;left:-1.2rem;top:.3rem;width:.7rem;height:.7rem;border-radius:999px;background:var(--brand)}
+    .team{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem}
+    .member{padding:1rem;border:1px solid var(--border);border-radius:var(--radius);background:var(--bg);text-align:center}
+    .member img{width:120px;height:120px;object-fit:cover;border-radius:999px;margin:0 auto .5rem}
+    .about-media{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1rem;margin-top:1rem}
+    .about-media figure{margin:0}
+    .about-media img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:calc(var(--radius) - 4px);border:1px solid var(--border)}
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Bỏ qua nội dung</a>
+
+  <div class="topbar" role="region" aria-label="Store info">
+    <div class="container topbar-inner">
+      <span>📍 189 Cô Giang</span>
+      <span>📞 Order: 0867.594.183</span>
+    </div>
+  </div>
+
+  <!--Header-->
+  <header class="site-header header-centered about-hero" role="banner">
+    <div class="container">
+      <nav class="site-nav centered" aria-label="Main">
+        <button id="navToggle" class="nav-toggle" aria-expanded="false" aria-controls="navMenu">Menu ☰</button>
+
+        <a class="brand-center" href="/index.html" aria-label="Bean Cofy Home">
+          <img src="/assets/img/logo.png" width="140" height="48" alt="BEAN COFY logo" />
+        </a>
+
+        <!--LR-->
+          <li><a href="/aboutus.html" aria-current="page">Về chúng tôi</a></li>
+        </ul>
+
+        <!--RR-->
+        <ul class="right menu-root">
+          <li><a href="/policy.html#jobs">Tuyển dụng</a></li>
+          <li><a class="btn small" href="/index.html">Trang chủ</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="site-main">
+    <section class="container" aria-labelledby="about-title" style="padding-top:1rem">
+      <h1 id="about-title">Về Bean Cofy</h1>
+      <p class="about-lead">Tại Bean Cofy, chúng tôi tin vào một tách đồ uống thật — rang xay cẩn thận, nguyên liệu chọn lọc, phục vụ trong không gian ấm áp. Hành trình của chúng tôi bắt đầu từ một cửa hàng nhỏ ở 189 Cô Giang và tiếp tục lớn dần nhờ sự tin yêu của bạn.</p>
+    </section>
+
+  
+    <section class="container grid-2" aria-label="Câu chuyện & Sứ mệnh">
+      <div class="card">
+        <h2>Câu chuyện</h2>
+        <p>Bean Cofy được sinh ra từ niềm đam mê với hạt cà phê Việt Nam và văn hoá thưởng trà Á Đông. Mỗi công thức đều là kết quả của hàng chục lần thử nghiệm để cân bằng hương vị và trải nghiệm.</p>
+        <p>Chúng tôi bắt đầu với vài món cơ bản: Espresso, Americano, Latte… và những món trà sen đặc trưng. Đến nay, thực đơn đã đa dạng hơn nhưng triết lý “thật & tử tế” vẫn không đổi.</p>
+        <img src="/assets/img/us.jpg" alt="aboutus" />
+      </div>
+      <div class="card">
+        <h2>Sứ mệnh & Giá trị</h2>
+        <div class="values">
+          <div class="value">
+            <h3>Chất lượng thật</h3>
+            <p>Nguyên liệu rõ nguồn gốc, kỹ thuật pha chế chuẩn mực.</p>
+          </div>
+          <div class="value">
+            <h3>Trải nghiệm ấm áp</h3>
+            <p>Không gian dễ chịu, dịch vụ thân thiện & dễ tiếp cận.</p>
+          </div>
+          <div class="value">
+            <h3>Bền vững</h3>
+            <p>Ưu tiên vật liệu thân thiện, hạn chế nhựa dùng một lần.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="container" aria-labelledby="timeline-title">
+      <h2 id="timeline-title">Hành trình phát triển</h2>
+      <div class="timeline">
+        <div class="item">
+          <h3>2023 — Khởi đầu</h3>
+          <p>Mở cửa hàng đầu tiên tại 189 Cô Giang với 8 món đồ uống.</p>
+        </div>
+        <div class="item">
+          <h3>2024 — Kết nối</h3>
+          <p>Ra mắt kênh Blog “Chuyện Nhà”, cập nhật công thức theo mùa.</p>
+        </div>
+        <div class="item">
+          <h3>2025 — Mở rộng</h3>
+          <p>Thêm món trà Senseries (Sen Tuyết, Sen Mây) và dịch vụ giao hàng.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="container" aria-labelledby="team-title">
+      <h2 id="team-title">Đội ngũ</h2>
+      <div class="team">
+        <article class="member">
+          <img src="/assets/img/ava.png" alt="Lan – Barista trưởng" />
+          <h3>Lan</h3>
+          <p>Barista Trưởng • 7 năm kinh nghiệm rang xay & latte art.</p>
+        </article>
+        <article class="member">
+          <img src="/assets/img/ava.png" alt="Minh – Pha chế" />
+          <h3>Minh</h3>
+          <p>Pha Chế • Đam mê cold brew & đồ uống theo mùa.</p>
+        </article>
+        <article class="member">
+          <img src="/assets/img/ava.png"alt="Vy – Dịch vụ khách hàng" />
+          <h3>Vy</h3>
+          <p>Dịch Vụ • Luôn lắng nghe góp ý để phục vụ tốt hơn.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="container" aria-labelledby="media-title">
+      <h2 id="media-title">Một góc Bean Cofy</h2>
+      <div class="about-media">
+        <figure class="media card">
+          <img src="/assets/img/tiem1.jpg" alt="Không gian bàn gỗ và ánh sáng ấm" />
+          <figcaption class="hint">Không gian ấm áp, phù hợp làm việc & gặp gỡ.</figcaption>
+        </figure>
+        <figure class="media card">
+          <img src="/assets/img/tiem2.jpg" alt="Khu vực order và quầy bar" />
+          <figcaption class="hint">Quầy bar — nơi những tách cà phê được chăm chút.</figcaption>
+        </figure>
+        <figure class="media card">
+          <img src="/assets/img/tiem3.jpg" alt="ngoài sân" />
+          <figcaption class="hint">Sân nhà - nơi thể hiện sự tươi mát.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!--map-->
+    <section class="container" aria-labelledby="map-title">
+      <h2 id="map-title">Địa chỉ & giờ mở cửa</h2>
+      <p> 189 Cô Giang, Quận 1, TP.HCM •  7:00 – 22:00 mỗi ngày</p>
+      <div class="responsive-iframe" aria-label="Google Maps">
+        <iframe src="https://www.google.com/maps?q=189%20Co%20Gian%20Ho%20Chi%20Minh&output=embed" loading="lazy"></iframe>
+      </div>
+      <p style="margin-top:.75rem">
+        <a class="btn" href="/aboutus.html">Góp ý</a>
+        <a class="btn secondary" href="/policy.html">Điều khoản</a>
+      </p>
+    </section>
+
+  
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; 2025 Bean Cofy · <a href="/policy.html">Policies</a></p>
+    </div>
+  </footer>
+
+  <script src="/assets/js/main.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Menu đồ uống Bean Cofy: Cà phê & Trà" />
+  <title>Menu • Bean Cofy</title>
+  <link rel="icon" href="/assets/img/logo.png" type="image/png" />
+  <link rel="stylesheet" href="/assets/css/styles.css" />
+  <style>
+    /* ——— CSS nhỏ cho trang Menu ——— */
+    .menu-header{background:var(--surface);border-bottom:1px solid var(--border)}
+    .menu-toolbar{display:flex;flex-wrap:wrap;gap:.75rem;align-items:center;margin:.5rem 0 1rem}
+    .menu-toolbar input, .menu-toolbar select{max-width:240px}
+    .product-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem}
+    .product-card{display:flex;flex-direction:column;gap:.5rem}
+    .product-card .thumb{aspect-ratio:4/3;width:100%;object-fit:cover;border-radius:.75rem;border:1px solid var(--border)}
+    .product-meta{display:flex;justify-content:space-between;align-items:center}
+    .price{font-weight:800}
+    .tags{display:flex;gap:.5rem;flex-wrap:wrap}
+    .tag{font-size:.8rem;padding:.2rem .5rem;border:1px solid var(--border);border-radius:999px;color:var(--muted)}
+    .section-head{display:flex;justify-content:space-between;align-items:end;margin-top:1.25rem}
+    .section-head a{text-decoration:none}
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Bỏ qua nội dung</a>
+
+  <!-- Header tái sử dụng -->
+  <header class="site-header header-centered menu-header">
+    <div class="container">
+      <nav class="site-nav centered" aria-label="Main">
+        <button id="navToggle" class="nav-toggle" aria-expanded="false" aria-controls="navMenu">Menu ☰</button>
+
+        <!-- BRAND -->
+        <a class="brand-center" href="/index.html" aria-label="Bean Cofy Home">
+          <img src="/assets/img/logo.png" width="40" height="40" alt="Bean Cofy logo" />
+          <span>BEAN COFY</span>
+        </a>
+
+        <!-- LEFT -->
+        <ul class="left menu-root" id="navMenu">
+          <li class="has-submenu">
+            <a href="/menu.html#coffee" aria-haspopup="true" aria-expanded="false">Cà phê</a>
+            <button class="submenu-toggle" aria-label="Mở danh mục Cà phê"></button>
+            <ul class="submenu" aria-label="Danh mục Cà phê">
+              <!-- SỬA: dẫn tới #espresso thay vì mở ảnh local -->
+              <li><a href="#espresso">Espresso</a></li>
+              <li><a href="#americano">Americano</a></li>
+              <li><a href="#latte">Latte</a></li>
+              <li><a href="#cappuccino">Cappuccino</a></li>
+              <li><a href="#coldbrew">Cold Brew</a></li>
+            </ul>
+          </li>
+
+          <li class="has-submenu">
+            <a href="/menu.html#tea" aria-haspopup="true" aria-expanded="false">Trà</a>
+            <button class="submenu-toggle" aria-label="Mở danh mục Trà"></button>
+            <ul class="submenu" aria-label="Danh mục Trà">
+              <li><a href="#sen-tuyet">Trà Sen Tuyết</a></li>
+              <li><a href="#sen-may">Trà Sen Mây</a></li>
+              <li><a href="#sen-vai">Trà Sen Vải</a></li>
+              <li><a href="#dao-cam-sa">Trà Đào Cam Sả</a></li>
+              <li><a href="#tra-sua">Trà Sữa</a></li>
+            </ul>
+          </li>
+
+          <li><a href="/aboutus.html">Về Chúng Tôi</a></li>
+        </ul>
+
+        <!-- RIGHT -->
+        <ul class="right menu-root">
+          <li><a href="/tuyendung.html">Tuyển dụng</a></li>
+          <li><a class="btn small" href="/dathang.html">Đặt hàng</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="site-main">
+    <section class="container" aria-labelledby="menu-title">
+      <h1 id="menu-title">Menu</h1>
+
+      <!-- Thanh công cụ tìm kiếm / lọc -->
+      <div class="menu-toolbar card" role="region" aria-label="Tìm kiếm menu">
+        <label for="q" class="sr-only">Tìm đồ uống</label>
+        <input id="q" type="search" placeholder="Tìm tên đồ uống…" aria-label="Tìm kiếm" />
+
+        <label for="cat" class="sr-only">Danh mục</label>
+        <select id="cat" aria-label="Danh mục">
+          <option value="all" selected>Tất cả</option>
+          <option value="coffee">Cà phê</option>
+          <option value="tea">Trà</option>
+        </select>
+
+        <label for="maxp" class="sr-only">Giá tối đa</label>
+        <input id="maxp" type="number" min="0" step="1000" placeholder="Giá tối đa (đ)" aria-label="Giá tối đa" />
+        <button id="clearFilter" class="btn secondary">Xóa lọc</button>
+      </div>
+
+      <!-- ===== CÀ PHÊ ===== -->
+      <div id="coffee" class="section-head">
+        <h2>Cà phê</h2>
+        <a class="text-link" href="#tea">↓ Sang mục Trà</a>
+      </div>
+      <div class="product-grid" id="coffee-list" aria-labelledby="coffee">
+        <!-- ESPRESSO -->
+        <article id="espresso" class="card product-card" data-cat="coffee" data-name="espresso" data-price="30000">
+          <img class="thumb" src="/assets/img/smoothy.jpg" alt="Espresso" loading="lazy" />
+          <div class="product-meta"><h3>Espresso</h3><div class="price">30.000</div></div>
+          <p>Shot đậm đà, hậu vị ngọt.</p>
+          <div class="tags"><span class="tag">Đậm</span><span class="tag">Nóng</span></div>
+        </article>
+
+        <article id="americano" class="card product-card" data-cat="coffee" data-name="americano" data-price="35000">
+          <img class="thumb" src="/assets/img/nuoc8.jpg" alt="Americano" loading="lazy" />
+          <div class="product-meta"><h3>Americano</h3><div class="price">35.000</div></div>
+          <p>Espresso + nước nóng, cân bằng.</p>
+          <div class="tags"><span class="tag">Nhẹ</span><span class="tag">Nóng</span></div>
+        </article>
+
+        <article id="latte" class="card product-card" data-cat="coffee" data-name="latte" data-price="45000">
+          <img class="thumb" src="/assets/img/cf1.jpg" alt="Latte" loading="lazy" />
+          <div class="product-meta"><h3>Latte</h3><div class="price">45.000</div></div>
+          <p>Sữa mượt, vị cà phê dịu.</p>
+          <div class="tags"><span class="tag">Sữa</span></div>
+        </article>
+
+        <article id="cappuccino" class="card product-card" data-cat="coffee" data-name="cappuccino" data-price="45000">
+          <img class="thumb" src="/assets/img/cf2.jpg" alt="Cappuccino" loading="lazy" />
+          <div class="product-meta"><h3>Cappuccino</h3><div class="price">45.000</div></div>
+          <p>Bọt sữa dày, thơm.</p>
+          <div class="tags"><span class="tag">Sữa</span><span class="tag">Bọt</span></div>
+        </article>
+
+        <article id="coldbrew" class="card product-card" data-cat="coffee" data-name="cold brew" data-price="47000">
+          <img class="thumb" src="/assets/img/cf3.jpg" alt="Cold Brew" loading="lazy" />
+          <div class="product-meta"><h3>Cold Brew</h3><div class="price">47.000</div></div>
+          <p>Ngâm lạnh 12h, mượt và ít chua.</p>
+          <div class="tags"><span class="tag">Lạnh</span></div>
+        </article>
+      </div>
+
+      <!-- ===== TRÀ ===== -->
+      <div id="tea" class="section-head">
+        <h2>Trà</h2>
+        <a class="text-link" href="#coffee">↑ Quay lại Cà phê</a>
+      </div>
+      <div class="product-grid" id="tea-list" aria-labelledby="tea">
+        <article id="sen-tuyet" class="card product-card" data-cat="tea" data-name="tra sen tuyet" data-price="79000">
+          <img class="thumb" src="/assets/img/nuoc1.jpg" alt="Trà Sen Tuyết" loading="lazy" />
+          <div class="product-meta"><h3>Trà Sen Tuyết</h3><div class="price">79.000</div></div>
+          <p>Đậm trà, thơm sen mát.</p>
+          <div class="tags"><span class="tag">Signature</span></div>
+        </article>
+
+        <article id="sen-may" class="card product-card" data-cat="tea" data-name="tra sen may" data-price="65000">
+          <img class="thumb" src="/assets/img/nuoc2.jpg" alt="Trà Sen Mây" loading="lazy" />
+          <div class="product-meta"><h3>Trà Sen Mây</h3><div class="price">65.000</div></div>
+          <div class="tags"><span class="tag">Mát</span></div>
+        </article>
+
+        <article id="sen-vai" class="card product-card" data-cat="tea" data-name="tra sen vai" data-price="65000">
+          <img class="thumb" src="/assets/img/nuoc4.jpg" alt="Trà Sen Vải" loading="lazy" />
+          <div class="product-meta"><h3>Trà Sen Vải</h3><div class="price">65.000</div></div>
+          <div class="tags"><span class="tag">Trái cây</span></div>
+        </article>
+
+        <article id="dao-cam-sa" class="card product-card" data-cat="tea" data-name="tra dao cam sa" data-price="65000">
+          <img class="thumb" src="/assets/img/nuoc5.jpg" alt="Trà Đào Cam Sả" loading="lazy" />
+          <div class="product-meta"><h3>Trà Đào Cam Sả</h3><div class="price">65.000</div></div>
+        </article>
+
+        <article id="tra-sua" class="card product-card" data-cat="tea" data-name="tra sua" data-price="55000">
+          <img class="thumb" src="/assets/img/nuoc6.jpg" alt="Trà Sữa" loading="lazy" />
+          <div class="product-meta"><h3>Trà Sữa</h3><div class="price">55.000</div></div>
+        </article>
+      </div>
+
+      <!-- Quick View Modal -->
+        <div id="quickView" class="qv-backdrop card" role="dialog" aria-modal="true" aria-labelledby="qv-title" aria-hidden="true" style="display:none;position:fixed;inset:0;padding:1rem;background:rgba(0,0,0,.35);z-index:9999">
+          <div class="card qv-dialog" style="max-width:720px;margin:auto;position:relative">
+            <button id="qvClose" class="btn secondary" aria-label="Đóng" style="position:absolute;right:.75rem;top:.75rem">Đóng</button>
+            <div class="qv-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;align-items:center">
+              <div class="media">
+                <img id="qv-img" src="" alt="" style="width:100%;height:auto;border-radius:16px;object-fit:cover"/>
+              </div>
+              <div>
+                <h2 id="qv-title" style="margin:.25rem 0 0 0">—</h2>
+                <p class="hint" id="qv-price" style="margin:.25rem 0 1rem 0">—</p>
+                <div id="qv-desc" class="muted" style="margin-bottom:1rem"></div>
+                <div class="form-actions">
+                  <a id="qv-order" class="btn" href="#">Đặt hàng</a>
+                  <a class="btn secondary" href="/dathang.html">Mở trang đặt hàng</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      <p><a class="btn" href="/dathang.html">Đặt hàng</a></p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; 2025 Bean Cofy · <a href="/policy.html">Policies</a></p>
+    </div>
+  </footer>
+
+  <script src="/assets/js/main.js" defer></script>
+  <script>
+
+    //sort
+    (function(){
+      const q = document.getElementById('q');
+      const cat = document.getElementById('cat');
+      const maxp = document.getElementById('maxp');
+      const clearBtn = document.getElementById('clearFilter');
+      const cards = Array.from(document.querySelectorAll('.product-card'));
+
+      function applyFilter(){
+        const kw = (q.value || '').trim().toLowerCase();
+        const c = cat.value; // all | coffee | tea
+        const max = parseInt(maxp.value || '0', 10);
+
+        cards.forEach(card => {
+          const name = (card.dataset.name || '').toLowerCase();
+          const price = parseInt(card.dataset.price || '0', 10);
+          const category = card.dataset.cat;
+
+          let ok = true;
+          if (c !== 'all' && category !== c) ok = false;
+          if (kw && !name.includes(kw)) ok = false;
+          if (max > 0 && price > max) ok = false;
+
+          card.style.display = ok ? '' : 'none';
+        });
+      }
+
+      q?.addEventListener('input', applyFilter);
+      cat?.addEventListener('change', applyFilter);
+      maxp?.addEventListener('input', applyFilter);
+      clearBtn?.addEventListener('click', (e)=>{ e.preventDefault(); q.value=''; cat.value='all'; maxp.value=''; applyFilter(); });
+
+      // chạy lần đầu
+      applyFilter();
+    })();
+  </script>
+</body>
+</html>
